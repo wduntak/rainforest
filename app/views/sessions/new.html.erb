@@ -1,13 +1,15 @@
-<h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br/>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+<div class = "container">
+	::before
+	<%= form_tag(class: "form-signin") sessions_path do %>
+	  <h2 class="form-sign-in-heading"> Please sign in</h2>
+	  <div class="field">
+	    <%= label_tag :email %><br/>
+	    <%= text_field_tag :email, params[:email] %>
+	  </div>
+	  <div class="field">
+	    <%= label_tag :password %><br/>
+	    <%= password_field_tag :password %>
+	  </div>
+	  <div class="actions"><%= submit_tag "Log in" %></div>
+	<% end %>
+</div>

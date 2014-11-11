@@ -1,6 +1,8 @@
-  <%= image_tag @product.url %>
-  <%= @product.name %>
-  <%= @product.description %>
+  <h2><%= @product.name %></h2><br>
+  <%= image_tag @product.url %> <br>
+  <p>Description:<p>
+  <%= @product.description %><br>
+  <p>Price:</p> 
   <%= @product.formatted_price %>
 
 <% if current_user %>
@@ -20,9 +22,6 @@
     </p>
   <% end %>
 
-  <h4>New Review</h4>
-
-  <%= form_for([@product, @review]) do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -35,9 +34,12 @@
       </div>
     <% end %>
 
+  <h4>New Review</h4>
+
+  <%= form_for([@product, @review]) do |f| %>
     <div class="field">
       <%= f.label :comment %><br />
-      <%= f.text_area :comment %>
+      <%= f.text_area :comment, size: "60x12"%>
     </div>
     <div class="actions">
       <%= f.submit %>
@@ -47,5 +49,7 @@
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> to add a review.</p> 
 <% end %>
+
+<%= link_to "Back to Products", root_path %>
 
 
