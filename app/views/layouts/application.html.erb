@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Rainforest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Rainforest</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
- <% if flash[:notice] %>
-      <p id="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
+  <div class = "navbar navbar-inverse navbar-static-top">
+    <div class = "container">
 
-<p class="addproduct">
-  <%if current_user %>
-    <%= link_to "Add a Product", new_product_path %>
-  <% end %>
-</p>
+      <a href= "#" class = "navbar-brand"> <%= image_tag("rainforest_logo.png") %> </a>
+      
+      <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+        <span class = "icon-book"><span>
+      </button>
 
+      <div class = "collapse navbar-collapse navHeaderCollapse">
+        
+        <ul class = "nav navbar-nav navbar-right">
+          <li><a href = "#">Login</a></li>
+          <li><a href = "#">Signup</a></li>
+        </uL>
 
-<%= yield %>
+      </div>
+    </div>
+  </div>
 
-</body>
+       <% if flash[:notice] %>
+          <p id="notice"><%= flash[:notice] %></p>
+       <% end %>
+       <% if flash[:alert] %>
+          <p id="alert"><%= flash[:alert] %></p>
+       <% end %>
+
+      <%= yield %>
+
+  </body>
 </html>

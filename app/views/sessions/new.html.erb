@@ -1,15 +1,35 @@
-<div class = "container">
-	::before
-	<%= form_tag(class: "form-signin") sessions_path do %>
-	  <h2 class="form-sign-in-heading"> Please sign in</h2>
-	  <div class="field">
-	    <%= label_tag :email %><br/>
-	    <%= text_field_tag :email, params[:email] %>
-	  </div>
-	  <div class="field">
-	    <%= label_tag :password %><br/>
-	    <%= password_field_tag :password %>
-	  </div>
-	  <div class="actions"><%= submit_tag "Log in" %></div>
-	<% end %>
-</div>
+ <html>
+ <head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+	<div class="row-fluid">
+	    <div class="span12">
+			<br/><br/>
+			<div class = "container">
+
+				<%= form_tag sessions_path, class: "form-signin" do %>
+				  <h2 class="form-sign-in-heading"> Please sign in</h2>
+				  <div class="field">
+				    <%= label_tag :email %><br/>
+				    <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email address" %>
+				  </div>
+				  <div class="field">
+				    <%= label_tag :password %><br/>
+				    <%= password_field_tag :password, class: "form-control" %>
+				  </div><br/>
+				  <div class="actions"><%= button_tag "Log in", class: "btn btn-lg btn-primary btn-block" %></div>
+				  <br/>
+				  <center><%= link_to "Go Back", root_path %></center>
+				<% end %>
+
+				<br/><br/>
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

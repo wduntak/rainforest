@@ -1,6 +1,12 @@
 <h1>Products</h1>
 
 
+<p class="addproduct">
+<%if current_user %>
+  <%= link_to "Add a Product", new_product_path %>
+<% end %>
+</p>
+
 <!--Product List -->
 <table class="table table-hover">
 <tr>
@@ -8,6 +14,9 @@
 	<td> Name </td>
 	<td> Description </td>
 	<td> Prices </td>
+	<td></td>
+	<td></td>
+	<td>
 
 </tr>
 <% @products.each do |product| %>
