@@ -13,8 +13,25 @@
 	<%= submit_tag "Search" %>
 <% end %>
 
-<div id = "products">
-	<%= render @products %>
+<div id="container">
+	<!--Product List -->
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<td> Pictures </td>
+				<td> Name </td>
+				<td> Description </td>
+				<td> Prices </td>
+				<td></td>
+				<td></td>
+				<td>
+			</tr>
+		</thead>
+		<tbody id='products'>
+			<%= render @products %>
+		</tbody>
+
+	</table>
 </div>
 
 
