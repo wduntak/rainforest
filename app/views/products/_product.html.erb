@@ -1,7 +1,7 @@
 <tr>
 	<td class="thumbnail"> <%= link_to image_tag(product.url), "products/#{product.id}" %> </td>
   	<td> <%= product.name %> </td>
-  	<td> <%= product.description %> </td>
+  	<td> <%= truncate(product.description, length: 100) %> </td>
   	<td> <%= product.formatted_price %> </td>
   	<td> <%= link_to "Show", product_path(product) %> </td>
   	<td> <%= link_to "Edit", edit_product_path(product) %> </td>

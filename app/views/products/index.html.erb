@@ -1,13 +1,11 @@
-<h1>Products</h1>
 
 
-<p class="addproduct">
-<%if current_user %>
-  <%= link_to "Add a Product", new_product_path %>
-<% end %>
-</p>
+<%= link_to "Add a Product", new_product_path %>
+
+<h1>Products <small><%= page_entries_info @products %></small></h1>
 
 <!--Search Form-->
+
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
 	<%= text_field_tag :search, params[:search] %>
 	<%= submit_tag "Search" %>
@@ -35,12 +33,5 @@
 </div>
 
 
-
-<!--Show if user is logged in or out-->
-<p class="userinfo">
-	<% if current_user %>
-		Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-	<% else %>
-		<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-	<% end %>
-</p>
+<!-- outputs several pagination links such as « First ‹ Prev ... 2 3 4 5 6 7 8 9 10 ... Next › Last » -->
+<%= paginate @products %>
