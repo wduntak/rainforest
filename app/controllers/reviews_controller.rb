@@ -20,12 +20,13 @@ before_filter :load_product
     # )
 
     respond_to do |format|
-    if @review.save
-      format.html { redirect_to products_path(@product.id), notice: 'Review created successfully'}
-      format.js {} #this will look in create.js.erb
-    else
-      format.html { render 'products/show', alert: 'There was an error.'}
-      format.js {} #this will look in create.js.erb
+      if @review.save
+        format.html { redirect_to products_path, notice: 'Review created successfully'}
+        format.js {} #this will look in create.js.erb
+      else
+        format.html { render 'products/show', alert: 'There was an error.'}
+        format.js {} #this will look in create.js.erb
+      end
     end
   end
 
