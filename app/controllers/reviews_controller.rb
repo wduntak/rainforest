@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 before_filter :ensure_logged_in, only: [:create, :destroy]
 before_filter :load_product
+validates :comment, :presence => true
 
   def show
     @review = Review.find(params[:id])
