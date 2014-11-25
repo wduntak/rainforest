@@ -35,8 +35,6 @@ gem 'autoprefixer-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-gem 'ransack'
-
 gem 'kaminari'
 
 # Use Capistrano for deployment

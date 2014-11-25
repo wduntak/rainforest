@@ -20,8 +20,15 @@
       <div class = "collapse navbar-collapse navHeaderCollapse">
         
         <ul class = "nav navbar-nav navbar-right">
-          <li><a href = "#">Login</a></li>
-          <li><a href = "#">Signup</a></li>
+          <!--Show if user is logged in or out-->
+          <li>
+            <p class="userinfo">
+              <% if current_user %>
+                Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+              <% else %>
+                <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+              <% end %>
+            </p>
         </uL>
 
       </div>

@@ -1,14 +1,19 @@
 
 $(document).on('ready page:load', function(){
-	$(window).scroll(function(){
-		if ($(window).scrollTop() > $(document).height() - $(window).height() - 50){
-			return alert('near bottom');
-		}
-	});
-
 	$('#search-form').submit(function(event) {
 		event.preventDefault();
 		var searchValue = $('#search').val();
+		$.getScript('/products?search=' + searchValue);
+	});
+
+	$(window).scroll(function(){
+		var url = $('.pagination span.next').children().attr('href');
+		if (url && $(window).scrollTop() > ($(document).height() - $(window).height() - 50)){
+			$('.pagination').text("Fetching more results...");
+			$.getScript(url);
+		}
+
+	});
 
 	//Using jQuery $.ajax
 
@@ -30,7 +35,5 @@ $(document).on('ready page:load', function(){
 
 	//Using $.getScript()
 
-		$.getScript('/products?search=' + searchValue);
-
-	});
+	
 });
